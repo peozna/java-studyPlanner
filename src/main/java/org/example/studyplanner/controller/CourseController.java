@@ -16,7 +16,7 @@ public class CourseController {
         this.service = service;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping
     public List<Course> getCourses() {
         return service.getAllCourses();
     }
