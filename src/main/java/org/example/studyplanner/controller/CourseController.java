@@ -1,4 +1,5 @@
 package org.example.studyplanner.controller;
+import org.example.studyplanner.dto.CourseDTO;
 import org.example.studyplanner.model.Course;
 import org.example.studyplanner.service.CourseService;
 import org.springframework.web.bind.annotation.*;
@@ -15,21 +16,22 @@ public class CourseController {
         this.service = service;
     }
 
-    @GetMapping("/courses/{id}")
+    @GetMapping("/{id}")
     public List<Course> getCourses() {
         return service.getAllCourses();
     }
 
+    @GetMapping("/{id}")
     public Optional<Course> getCourse(@PathVariable Long id) {
         return service.findCourse(id);
     }
 
     @PostMapping
-    public Course createCourse(String name, String description) {
-        return service.createCourse(name, description);
+    public Course createCourse(@RequestBody CourseDTO courseDTO) {
+        return service.createCourse(courseDTO);
     }
 
-    @DeleteMapping("/courses/{id}")
+    @DeleteMapping("/{id}")
     public void deleteCourse(@PathVariable Long id) {
         service.deleteCourse(id);
     }
