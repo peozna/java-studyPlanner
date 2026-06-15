@@ -7,21 +7,28 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @Setter
-public class Course {
+public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
+    private String title;
     private String description;
+    private LocalDate dueDate;
+    private boolean completed;
 
-    public Course() {}
+    public Task() {}
 
-    public Course(String name, String description) {
-        this.name = name;
+    public Task(String title, String description, LocalDate dueDate) {
+        this.title = title;
         this.description = description;
+        this.dueDate = dueDate;
+        this.completed = false;
     }
 
 }
