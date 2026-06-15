@@ -16,9 +16,10 @@ public class CourseService {
         this.repository = repository;
     }
 
-    public void createCourse(Long id, String name, String description) {
-        Course newCourse = new Course(id, name, description);
+    public Course createCourse(String name, String description) {
+        Course newCourse = new Course(name, description);
         repository.save(newCourse);
+        return newCourse;
     }
 
     public List<Course> getAllCourses() {
