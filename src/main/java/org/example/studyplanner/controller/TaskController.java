@@ -39,9 +39,9 @@ public class TaskController {
         }
 
         @PutMapping("/{id}")
-        public Task updateTask(@PathVariable @RequestBody Long id, TaskDTO taskDTO) { return service.updateTask(id, taskDTO); }
+        public Task updateTask(@PathVariable Long id, @RequestBody TaskDTO taskDTO) { return service.updateTask(id, taskDTO); }
 
-        @PutMapping("/{id}")
+        @PatchMapping("/{id}/complete")
         public Task completeTask(@PathVariable Long id) { return service.completeTask(id); }
 
 }

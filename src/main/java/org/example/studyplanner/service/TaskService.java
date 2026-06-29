@@ -4,12 +4,14 @@ import org.example.studyplanner.dto.TaskDTO;
 import org.example.studyplanner.model.Course;
 import org.example.studyplanner.model.Task;
 import org.example.studyplanner.repository.TaskRepository;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TaskService {
     private final TaskRepository repository;
 
